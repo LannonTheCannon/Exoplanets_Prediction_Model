@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ exoplanet.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exoplanet_detail.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ exoplanet.name }}</h1>
+
+        <!-- Basic Information -->
+        <div class="section">
+            <h2>Basic Information</h2>
+            <div class="detail-item">
+                <strong class="detail-key">Distance:</strong>
+                <span class="detail-value">{{ exoplanet.distance }} light years away</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Discovery Year:</strong>
+                <span class="detail-value">{{ exoplanet.discovery_year }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Detection Method:</strong>
+                <span class="detail-value">{{ exoplanet.detection_method }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Stellar Magnitude:</strong>
+                <span class="detail-value">{{ exoplanet.stellar_magnitude }} (lower values indicate brighter stars)</span>
+            </div>
+        </div>
+
+        <!-- Planetary Characteristics -->
+        <div class="section">
+            <h2>Planetary Characteristics</h2>
+            <div class="detail-item">
+                <strong class="detail-key">Mass Multiplier:</strong>
+                <span class="detail-value">{{ exoplanet.mass_multiplier }} times the mass of Jupiter</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Mass:</strong>
+                <span class="detail-value">{{ exoplanet.mass_wrt }} kg (with respect to Jupiter)</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Radius Multiplier:</strong>
+                <span class="detail-value">{{ exoplanet.radius_multiplier }} times the radius of Jupiter</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Radius:</strong>
+                <span class="detail-value">{{ exoplanet.radius_wrt }} km (with respect to Jupiter)</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Approximated Mass:</strong>
+                <span class="detail-value">{{ exoplanet.approximated_mass }} kg</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Approximated Radius:</strong>
+                <span class="detail-value">{{ exoplanet.approximated_radius }} km</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Planet Gravity:</strong>
+                <span class="detail-value">{{ exoplanet.planet_gravity }} m/s²</span>
+            </div>
+        </div>
+
+        <!-- Habitability Indicators -->
+        <div class="section">
+            <h2>Habitability Indicators</h2>
+            <div class="detail-item">
+                <strong class="detail-key">Habitable Zone:</strong>
+                <span class="detail-value">{{ exoplanet.habitable_zone }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Planet Surface Temperature:</strong>
+                <span class="detail-value">{{ exoplanet.planet_surface_temperature }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Atmospheric Pressure:</strong>
+                <span class="detail-value">{{ exoplanet.atmospheric_pressure }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Biosignature Potential:</strong>
+                <span class="detail-value">{{ exoplanet.biosignature_potential }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Radiation Exposure:</strong>
+                <span class="detail-value">{{ exoplanet.radiation_exposure }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Climate Stability:</strong>
+                <span class="detail-value">{{ exoplanet.climate_stability }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Possibility of Moon:</strong>
+                <span class="detail-value">{{ exoplanet.possibility_of_moon }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Planetary Composition Hypothesis:</strong>
+                <span class="detail-value">{{ exoplanet.combined_planetary_composition_hypothesis }}</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Atmospheric Density:</strong>
+                <span class="detail-value">{{ exoplanet.atmospheric_density }}</span>
+            </div>
+        </div>
+
+        <!-- Orbital & Stellar Data -->
+        <div class="section">
+            <h2>Orbital & Stellar Data</h2>
+            <div class="detail-item">
+                <strong class="detail-key">Orbital Radius:</strong>
+                <span class="detail-value">{{ exoplanet.orbital_radius }} astronomical units (AU)</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Orbital Period:</strong>
+                <span class="detail-value">{{ exoplanet.orbital_period }} Earth days</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-key">Eccentricity:</strong>
+                <span class="detail-value">{{ exoplanet.eccentricity }}</span>
+            </div>
+        </div>
+
+        <a class="back-button" href="{{ url_for('exoplanet_catalog') }}">← Back to Catalog</a>
+    </div>
+</body>
+</html>

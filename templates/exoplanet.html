@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoplanet Catalog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exoplanets_catalog.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Exoplanet Catalog</h1>
+        <ul class="exoplanet-list">
+            {% for exoplanet in exoplanets %}
+                <li class="exoplanet-item">
+                    <a class="exoplanet-link" href="{{ url_for('show_exoplanet', index=loop.index) }}">{{ exoplanet.name }}</a>
+                    <p>Distance: {{ exoplanet.distance }} units</p>
+                    <p>Discovery Year: {{ exoplanet.discovery_year }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

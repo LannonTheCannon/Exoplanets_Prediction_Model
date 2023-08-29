@@ -1,0 +1,2 @@
+Flask==x.x.x
+pandas==x.x.x

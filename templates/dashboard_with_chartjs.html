@@ -1,0 +1,93 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exoplanet Dashboard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+        <script src="{{ url_for('static', filename='js/dashboard_with_chart.js') }}" defer></script>
+    </head>
+<body>
+    <header>
+        <h1>Exoplanet Dashboard</h1>
+    </header>
+    <main>
+        <section id="general-stats" class="dashboard-section">
+            <h2>General Statistics</h2>
+            <ul>
+                <li><strong>Total Exoplanets:</strong> {{ total_exoplanets }}</li>
+                <li><strong>Avg. Distance from Earth:</strong> {{ avg_distance }} light years</li>
+                <li><strong>Most Recent Discovery:</strong> {{ most_recent_year }}</li>
+                <li><strong>Oldest Discovery:</strong> {{ oldest_discovery_year }}</li>
+            </ul>
+        </section>
+
+        <section id="charts" class="dashboard-section">
+            <h2>Graphical Insights</h2>
+            <div class="chart-container">
+                <canvas id="discoveryYearHistogram"></canvas>
+            </div>
+            <div class="chart-summary">
+                <h3>Discovery Year Stats</h3>
+                <ul>
+                    <li><strong>Year with Most Discoveries:</strong> 2016 (1,517 exoplanets)</li>
+                    <li><strong>Year with Fewest Discoveries:</strong> 1994 (1 exoplanet)</li>
+                    <li><strong>Avg. Discoveries per Year:</strong> ~169.35</li>
+                    <li><strong>Years of Discoveries:</strong> 31 years</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="habitable-zone" class="dashboard-section">
+            <h2>Exoplanets in Habitable Zone</h2>
+            <div class="chart-container">
+                <canvas id="detectionMethodPie"></canvas>
+            </div>
+            <div class="chart-summary">
+                <h3>Habitable Zone Stats</h3>
+                <ul>
+                    <li><strong>In Habitable Zone:</strong> 265 planets</li>
+                    <li><strong>Outside Habitable Zone:</strong> 4,985 planets</li>
+                    <li><strong>% in Habitable Zone:</strong> ~5</li>
+                </ul>
+                <p>The habitable zone is the region around a star...</p>
+            </div>
+        </section>
+
+        <section id="composition-chart" class="dashboard-section">
+            <h2>Planetary Composition Hypothesis</h2>
+            <div class="chart-container">
+                <canvas id="compositionBarChart"></canvas>
+            </div>
+        </section>
+
+        <section id="exoplanet-table" class="dashboard-section">
+            <h2>Exoplanet Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Distance (light years)</th>
+                        <th>Discovery Year</th>
+                        <th>Detection Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for planet in exoplanets %}
+                    <tr>
+                        <td>{{ planet['name'] }}</td>
+                        <td>{{ planet['distance'] }}</td>
+                        <td>{{ planet['discovery_year'] }}</td>
+                        <td>{{ planet['detection_method'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

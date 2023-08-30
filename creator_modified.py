@@ -22,5 +22,14 @@ def show_exoplanet(index):
     exoplanet = exoplanets[index]
     return render_template('exoplanet_detail.html', exoplanet=exoplanet)
 
+# Exoplanet Blog
+@app.route('/dashboard')
+def dashboard():
+    total_exoplanets = 5250
+    avg_distance = 2164.59
+    most_recent_year = 2023
+    oldest_discovery_year = 1992
+    return render_template('dashboard_with_chartjs.html', exoplanets=exoplanets, total_exoplanets=total_exoplanets, avg_distance=avg_distance, most_recent_year=most_recent_year, oldest_discovery_year=oldest_discovery_year)
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5006)
+    app.run(debug=True, port=5007)

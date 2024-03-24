@@ -22,7 +22,7 @@ cd Exoplanets_Prediction_Model
 
 ```bash
 # Clone the repository
-git clone [Your-Repo-Link]
+git clone https://github.com/LannonTheCannon/Exoplanets_Prediction_Model.git
 
 # Navigate to the directory
 cd Exoplanet-Explorer

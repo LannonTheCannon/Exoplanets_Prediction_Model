@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def setup_page():
-    return render_template('button.html')
+    return render_template('button2.html')
 
 # Exoplanet Blog
 @app.route('/exoplanet_catalog')
@@ -32,4 +32,4 @@ def dashboard():
     return render_template('dashboard_with_chartjs.html', exoplanets=exoplanets, total_exoplanets=total_exoplanets, avg_distance=avg_distance, most_recent_year=most_recent_year, oldest_discovery_year=oldest_discovery_year)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5007)
+    app.run(debug=True, port=5009)
